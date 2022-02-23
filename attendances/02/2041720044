@@ -1,0 +1,23 @@
+**Resume Pertemuan 2**
+Routing dan Controlling
+
+1. Routing adalah jalur, maka sebagai konsep routing pada Laravel, yaitu jalur URL yang bisa diakses oleh pengguna aplikasi 
+dan ke mana jalur itu diproses.
+2. Controller penghubung antara request user (View) ke model yang nantinya akan di kembalikan lagi ke View dalam bentuk response.
+3. Controller digunakan untuk mengorganisasi logika aplikasi menjadi lebih terstruktur. Logika action aplikasi yang masih ada kaitan dapat dikumpulkan dalam satu kelas Controller. Atau sebuah Controller dapat juga hanya berisi satu buah action. Controller pada Laravel disimpan dalam 
+folder app/Http/Controllers.
+4. Untuk membuat route digunakan Facade Route diikuti dengan verb yang merupakan HTTP verb, umumnya terdiri dari get, post, put, delete, options, patch. Selain itu dibutuhkan path yang berupa URL setelah nama domain aplikasi yang diakses oleh pengguna. Dan pada bagian akhir terdapat callback yang dapat berupa callback function atau controller action yang menjalankan logika 
+ketika path diakses oleh pengguna. 
+5. Penggunaan controller menyederhanakan pendefinisian route, karena cukup dituliskan nama controller diikuti action pada callback. 
+6. Pendefinisian route sebaiknya dituliskan sesuai kegunaannya. Secara umum laravel membagi menjadi empat tempat, yaitu:
+    1. routes/web.php digunakan untuk web standard
+    2. routes/api.php digunakan untuk web service/API
+    3. routes/console.php digunakan untuk command line
+    4. routes/channel.php digunakan untuk broadcast channel melalui websocket
+7. dependency injection adalah dimana sebuah route dapat dititipkan dependency yang dibutuhkan, Laravel akan meresolve dependency ini secara otomatis dan ikut dikirim di callback function yang dimiliki route.
+8. redirect pada laravel dapat dilakukan dengan menggunakan Route::redirect
+9. view routes adalah route khusus yang memudahkan anda membuat sebuah 
+routes tanpa menggunakan controller atau callback function routes ini langsung menerima input berupa url dan mengembalikan view / tampilan.
+10. CSRF Protection adalah Semua routes yang didefinisikan di web.php harus menyertakan CSRF Token untuk pemrosesan http verb POST,PUT,PATCH atau DELETE jika tidak memiliki token CSRF request nya akan ditolak.
+11. Route Parameter adalah route yang membutuhkan id user yang dikirim melalui sebuah URL.
+12. Route Prefix digunakan untuk pengelompokan route yang memiliki prefix(awalan) yang sama
