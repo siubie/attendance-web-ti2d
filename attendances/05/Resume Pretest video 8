@@ -1,0 +1,41 @@
+Step By Step Pretest video 8
+Krismawati 2041720019
+
+a.	Fork github pada github yang telah disediakan yaitu https://github.com/siubie/laravel8-2022-model
+a.	Clone github yang sudah difork 
+b.	Setelah itu buatlah database baru untuk project ini (pwl_model)
+c.	Bukalah VsCode
+d.	Kemudian lakukan Run composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist di terminal
+e.	Setelah itu Buatlah file .env, pada nama database isilah nama database tersebut dengan nama database yang sudah di buat sebelumnya (pwl_model)
+f.	Kemudian jalankan artisan generate key (php artisan generate:key)
+g.	Kemudian lakukan migrasi (php artisan migrate:fresh –seed)
+h.	Lakukan pengisian TODO pada file BlogController.php 
+•	index: // TODO : Buatlah pagination dengan eloquent dan tampilkan news per 5 data 
+  $news = News::orderBy('id', 'desc')->paginate(5); // TODO : Return view welcome dengan data news return view('welcome', compact('news')); 
+•	store: // TODO : Gunakan model news untuk menyimpan data ke database dengan menggunakan method create berilah parameter 'title' dengan nilai "Judul Baru", dan parameter 'content' dengan nilai "Berita Baru" 
+  News::create(['title' => 'Judul Baru', 'content' => 'Berita Baru']); // TODO : Buatkan Redirect ke route named 'news.index' return redirect() -> route('news.index');
+•	update: // TODO : Gunakan model news untuk mengambil data terakhir pada tabel news 
+  $news = News::orderBy('id', 'desc') -> first(); 
+•	// TODO : Update 'title' menjadi 'Judul Baru Updated' 'content' menjadi 'Berita Baru Updated' 
+  $news -> update(['title' => 'Judul Baru Updated', 'content' => 'Berita Baru Updated']);
+•	// TODO : Buatkan Redirect ke route named 
+  'news.index' return redirect() -> route('news.index'); 
+•	destroy: // TODO : Gunakan model news untuk mengambil data terakhir pada tabel news 
+  $news = News::orderBy('id', 'desc') -> first(); 
+•	// TODO : Hapus data tersebut
+  $news -> delete(); 
+•	// TODO : Buatkan Redirect ke route named 
+  'news.index' return redirect() -> route('news.index');
+i.	Lakukan  pengisian TODO pada file web.php 
+•	// TODO : add route 
+  Route::get('/', [BlogController::class, 'index'])->name('news.index'); 
+•	// TODO : Tambah kan route get ke url /store sambungkan ke controller BlogController dengan method store named route news.store
+  Route::get('/store', [BlogController::class, 'store'])->name('news.store'); 
+•	// TODO : Tambah kan route get ke url /update sambungkan ke controller BlogController dengan method update named route news.update 
+  Route::get('/update', [BlogController::class, 'update'])->name('news.update'); 
+•	// TODO : Tambah kan route get ke url /destroy sambungkan ke controller BlogController dengan method destroy named route news.destroy 
+  Route::get('/destroy', [BlogController::class, 'destroy'])->name('news.destroy');
+j.	Kemudian Jalankan php artisan serve pada terminal
+k.	Lakukan pengecekan dengan menjalankan perintah php artisan test
+l.	Jika tidak ada pesan error maka lakukan commit dan push ke github.
+
